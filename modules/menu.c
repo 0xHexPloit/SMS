@@ -31,7 +31,7 @@ static void displayLoadFileMenu()
 
   char filePath[100];
 
-  getString("Enter the path to the file: ", filePath, 100);
+  getString("Enter the path to the file: ", filePath, 100, NO_FLAG);
 
   // Checking if the file exists
   if (checkFileExists(filePath))
@@ -55,18 +55,18 @@ void displayAddStudentMenu()
   int age;
 
   // Getting the student's name
-  getString("Enter the student's name: ", name, 30);
+  getString("Enter the student's name: ", name, 30, ALPHA_FLAG | SPACE_FLAG);
   // Getting the student's surname
-  getString("Enter the student's surname: ", surname, 30);
+  getString("Enter the student's surname: ", surname, 30, ALPHA_FLAG | SPACE_FLAG);
   // Getting the student's master
-  getString("Enter the student's master: ", master, 30);
+  getString("Enter the student's master: ", master, 30, ALPHA_FLAG | NUMBER_FLAG);
   // Getting the student's age
   age = getInt("Enter the student's age: ", 0, 100);
 
   // Adding the student record to the linked list
   addStudentRecord(name, surname, master, age);
 
-  printf("Student record added\n");
+  printf("\nStudent record added\n");
 }
 
 static void displayShowStudentMenu()
