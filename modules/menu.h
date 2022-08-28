@@ -5,6 +5,8 @@ static void displayBanner();
 static void displayLoadFileMenu();
 void displayMainMenu();
 static void displayAddStudentMenu();
+static void displayRemoveStudentMenu();
 static void displayShowStudentMenu();
+static void displaySaveMenu();
 
 #endif

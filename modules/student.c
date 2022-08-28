@@ -7,13 +7,13 @@ StudentLinkedList *head = NULL;
 StudentLinkedList *tail = NULL;
 int numberOfStudents = 0;
 
-int addStudentRecord(char *name, char *surname, char *master, int age)
+bool addStudentRecord(char *name, char *surname, char *master, int age)
 {
   StudentLinkedList *newStudent = (StudentLinkedList *)malloc(sizeof(StudentLinkedList));
   if (newStudent == NULL)
   {
     printf("Error: Memory allocation failed\n");
-    return -1;
+    return false;
   }
   newStudent->student.id = tail == NULL ? 1 : tail->student.id + 1;
   strncpy(newStudent->student.name, name, 30);
@@ -33,6 +33,39 @@ int addStudentRecord(char *name, char *surname, char *master, int age)
     tail = newStudent;
   }
   numberOfStudents++;
+  return true;
+}
+
+bool deleteStudentRecord(int id)
+{
+  StudentLinkedList *current = head;
+  StudentLinkedList *previous = NULL;
+
+  while (current != NULL)
+  {
+    // Iterate through the linked list and find the student with the given id
+    if (current->student.id != id)
+    {
+      previous = current;
+      current = current->next;
+      continue;
+    }
+
+    // Dealing the case where the student is the first one in the linked list
+    if (previous == NULL)
+    {
+      head = current->next;
+    }
+    else
+    {
+      previous->next = current->next;
+    }
+    free(current);
+    numberOfStudents--;
+    return true;
+  }
+
+  return false;
 }
 
 void deleteLinkedListContent()
@@ -75,4 +108,20 @@ void displayStudentRecords()
     displayStudent(current->student);
     current = current->next;
   }
+}
+
+bool saveStudentRecordsToFile(const FILE *file)
+{
+  StudentLinkedList *current = head;
+  while (current != NULL)
+  {
+    int output = fprintf(file, "%d %s %s %s %d\n", current->student.id, current->student.name, current->student.surname, current->student.master, current->student.age);
+    if (output < 0)
+    {
+      printf("Error: Writing to file failed\n");
+      return false;
+    }
+    current = current->next;
+  }
+  return true;
 }

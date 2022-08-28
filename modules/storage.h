@@ -3,8 +3,10 @@
 
 #include <stdbool.h>
 
-int createNewFileInDisk();
-
 bool checkFileExists(const char *fileName);
+
+bool checkDirectoryExists(const char *directoryName);
+
+bool writeToDisk(const char *fileName, bool *callback(const FILE *file));
 
 #endif // STORAGE_H

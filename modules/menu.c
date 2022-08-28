@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "menu.h"
 #include "console.h"
 #include "student.h"
 #include "storage.h"
+#include "path.h"
 
 typedef enum mainMenuOptions
 {
@@ -69,6 +71,24 @@ void displayAddStudentMenu()
   printf("\nStudent record added\n");
 }
 
+static void displayRemoveStudentMenu()
+{
+  clearConsole();
+  displayBanner();
+
+  int id = getInt("Enter the student's ID: ", 1, SHRT_MAX);
+  puts("\n");
+
+  if (deleteStudentRecord(id))
+  {
+    printf("Student record deleted\n");
+  }
+  else
+  {
+    printf("Student record not found\n");
+  }
+}
+
 static void displayShowStudentMenu()
 {
   clearConsole();
@@ -79,6 +99,43 @@ static void displayShowStudentMenu()
   printf("Number of students: %d\n\n", numberOfStudents);
 
   displayStudentRecords();
+  waitEnterKey();
+}
+
+void displaySaveMenu()
+{
+  clearConsole();
+  displayBanner();
+
+  char buffer[100];
+  Path filePath;
+  bool canExit = false;
+
+  while (!canExit)
+  {
+    getString("Enter the path to the file: ", buffer, 100, NO_FLAG);
+    filePath = createPath(buffer);
+    Path parentDirectory = getParentDirectory(&filePath);
+
+    if (checkDirectoryExists(pathToString(&parentDirectory)))
+    {
+      canExit = true;
+      continue;
+    }
+    printf("Error: Directory not found\n");
+  }
+
+  printf("Writing to file: %s\n", pathToString(&filePath));
+  if (writeToDisk(pathToString(&filePath), &saveStudentRecordsToFile))
+  {
+    int numberOfStudents = getNumberOfStudentRecords();
+    printf("%d student record(s) saved to file\n", numberOfStudents);
+  }
+  else
+  {
+    printf("Error: Unable to save student records to file\n");
+  }
+
   waitEnterKey();
 }
 
@@ -115,7 +172,7 @@ void displayMainMenu()
     }
     else if (selectedOption == REMOVE_STUDENT)
     {
-      // displayRemoveStudentMenu();
+      displayRemoveStudentMenu();
     }
     else if (selectedOption == DISPLAY_STUDENTS)
     {
@@ -123,7 +180,7 @@ void displayMainMenu()
     }
     else if (selectedOption == SAVE_STUDENTS_TO_FILE)
     {
-      // displaySaveFileMenu();
+      displaySaveMenu();
     }
     else if (selectedOption == EXIT)
     {

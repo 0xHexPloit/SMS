@@ -1,6 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#include <stdbool.h>
 typedef struct
 {
   char name[30];
@@ -18,7 +19,9 @@ typedef struct linkedList
 
 static StudentLinkedList *getTail(StudentLinkedList *head);
 
-int addStudentRecord(char *name, char *surname, char *master, int age);
+bool addStudentRecord(char *name, char *surname, char *master, int age);
+
+bool deleteStudentRecord(int id);
 
 void deleteLinkedListContent();
 
@@ -29,5 +32,7 @@ int getNumberOfStudentRecords();
 static void displayStudent(Student student);
 
 void displayStudentRecords();
+
+bool saveStudentRecordsToFile(const FILE *file);
 
 #endif // STUDENT_H
