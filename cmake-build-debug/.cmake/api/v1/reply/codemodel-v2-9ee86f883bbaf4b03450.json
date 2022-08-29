@@ -1,0 +1,133 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "modules",
+					"jsonFile" : "directory-modules-Debug-c4db38ae2d0bc927e52f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "modules",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "SMS",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "console::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-console-Debug-7f36c292512cab887188.json",
+					"name" : "console",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "menu::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-menu-Debug-04d7b7903934df7282d5.json",
+					"name" : "menu",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "path::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-path-Debug-9644f1810cd21bd1abbb.json",
+					"name" : "path",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sms::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sms-Debug-04fb1f561d5ef66aeb67.json",
+					"name" : "sms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "storage::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-storage-Debug-412d2a61d26aad77c9c9.json",
+					"name" : "storage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "student::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-student-Debug-4f79645172b9b8bfa885.json",
+					"name" : "student",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "utils::@9b7b1f9db13f92153135",
+					"jsonFile" : "target-utils-Debug-122146725c6455a642b6.json",
+					"name" : "utils",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/hugopeyron/Programming/C/SMS/cmake-build-debug",
+		"source" : "/Users/hugopeyron/Programming/C/SMS"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -30,7 +30,8 @@ bool checkDirectoryExists(const char *directoryName)
   }
 }
 
-bool writeToDisk(const char *fileName, bool *callback(const FILE *file)) {
+bool writeToDisk(const char *fileName, bool (*callback)(const FILE *file))
+{
   FILE *file = fopen(fileName, "w");
   if (file == NULL)
   {
@@ -40,4 +41,25 @@ bool writeToDisk(const char *fileName, bool *callback(const FILE *file)) {
   bool result = callback(file);
   fclose(file);
   return result;
+}
+
+bool readLinesFromFile(const char *fileName, bool (*callback)(const char *file))
+{
+  printf("Reading file %s\n", fileName);
+  FILE *file = fopen(fileName, "r");
+  if (file == NULL)
+  {
+    return false;
+  }
+  char line[256];
+  while (fgets(line, sizeof(line), file) != NULL)
+  {
+    if (!callback(line))
+    {
+      fclose(file);
+      return false;
+    }
+  }
+  fclose(file);
+  return true;
 }

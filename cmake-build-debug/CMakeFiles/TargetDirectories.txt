@@ -1,0 +1,11 @@
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/CMakeFiles/sms.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/console.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/storage.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/student.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/menu.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/path.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/utils.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/edit_cache.dir
+/Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules/CMakeFiles/rebuild_cache.dir

@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 #include "console.h"
 
 #ifdef _WIN32
@@ -10,30 +9,25 @@
 #include <unistd.h>
 #endif
 
-int getInt(const char *label, int min, int max)
+int getInt(const char *label)
 {
   char buffer[32];
   int choice = 0;
-  bool canExit = false;
 
-  while (!canExit)
+  while (true)
   {
     printf("%s", label);
     fgets(buffer, sizeof(buffer), stdin);
-    choice = atoi(buffer);
+    char* endPtr;
+    choice = (int)strtol(buffer, &endPtr, 10);
 
-    if (choice == 0)
+    if (endPtr == buffer || *endPtr != '\n')
     {
-      fflush(stdin);
-    }
-    else if (choice >= min && choice <= max)
-    {
-      canExit = true;
+      printf("Invalid input.\n");
       continue;
     }
-    printf("Invalid input. Please enter a number between %d and %d\n", min, max);
+    return choice;
   }
-  return choice;
 }
 
 int getOption(const char *label, const char **options, int numberOptions)
@@ -53,50 +47,25 @@ int getOption(const char *label, const char **options, int numberOptions)
   puts("\n");
 
   // Getting the user input
-  return getInt("Enter your choice: ", 1, numberOptions);
-}
-
-static bool checkString(const char *string, int flags)
-{
-  for (int i = 0; i < strlen(string); i++)
-  {
-    if (flags & ALPHA_FLAG)
-    {
-      if (isalpha(string[i]) != 0)
-        continue;
-    }
-    if (flags & SPACE_FLAG)
-    {
-      if (isspace(string[i]) != 0)
-        continue;
-    }
-
-    if (flags & NUMBER_FLAG)
-    {
-      if (isdigit(string[i]) != 0)
-        continue;
-    }
-    return false;
-  }
-  return true;
-}
-
-void getString(const char *label, char *buffer, int bufferSize, int flags)
-{
   while (true)
   {
-    printf("%s", label);
-    fgets(buffer, bufferSize, stdin);
-    buffer[strlen(buffer) - 1] = '\0';
-
-    if (flags == NO_FLAG)
-      return;
-
-    if (checkString(buffer, flags))
-      return;
-
-    printf("Invalid input. Please enter a valid string\n");
+    int choice = getInt("Enter your choice: ");
+    if (choice > 0 && choice <= numberOptions)
+    {
+      return choice;
+    }
+    else
+    {
+      printf("Invalid choice\n");
+    }
   }
+}
+
+void getString(const char *label, char *buffer, int bufferSize)
+{
+  printf("%s", label);
+  fgets(buffer, bufferSize, stdin);
+  buffer[strlen(buffer) - 1] = '\0';
 }
 
 void freezeConsole(int seconds)

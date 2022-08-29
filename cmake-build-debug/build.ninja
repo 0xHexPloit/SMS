@@ -1,0 +1,396 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: SMS
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/hugopeyron/Programming/C/SMS/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target sms
+
+
+#############################################
+# Order-only phony target for sms
+
+build cmake_object_order_depends_target_sms: phony || cmake_object_order_depends_target_console cmake_object_order_depends_target_menu cmake_object_order_depends_target_path cmake_object_order_depends_target_storage cmake_object_order_depends_target_student cmake_object_order_depends_target_utils
+
+build CMakeFiles/sms.dir/main.c.o: C_COMPILER__sms_Debug /Users/hugopeyron/Programming/C/SMS/main.c || cmake_object_order_depends_target_sms
+  DEP_FILE = CMakeFiles/sms.dir/main.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = CMakeFiles/sms.dir
+  OBJECT_FILE_DIR = CMakeFiles/sms.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target sms
+
+
+#############################################
+# Link the executable sms
+
+build sms: C_EXECUTABLE_LINKER__sms_Debug CMakeFiles/sms.dir/main.c.o | modules/libconsole.a modules/libstorage.a modules/libstudent.a modules/libmenu.a modules/libpath.a modules/libutils.a || modules/libconsole.a modules/libmenu.a modules/libpath.a modules/libstorage.a modules/libstudent.a modules/libutils.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LINK_LIBRARIES = modules/libconsole.a  modules/libstorage.a  modules/libstudent.a  modules/libmenu.a  modules/libpath.a  modules/libutils.a
+  OBJECT_DIR = CMakeFiles/sms.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = sms
+  TARGET_PDB = sms.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hugopeyron/Programming/C/SMS/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hugopeyron/Programming/C/SMS/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/hugopeyron/Programming/C/SMS -B/Users/hugopeyron/Programming/C/SMS/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/hugopeyron/Programming/C/SMS/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target console
+
+
+#############################################
+# Order-only phony target for console
+
+build cmake_object_order_depends_target_console: phony || modules/CMakeFiles/console.dir
+
+build modules/CMakeFiles/console.dir/console.c.o: C_COMPILER__console_Debug /Users/hugopeyron/Programming/C/SMS/modules/console.c || cmake_object_order_depends_target_console
+  DEP_FILE = modules/CMakeFiles/console.dir/console.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/console.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/console.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target console
+
+
+#############################################
+# Link the static library modules/libconsole.a
+
+build modules/libconsole.a: C_STATIC_LIBRARY_LINKER__console_Debug modules/CMakeFiles/console.dir/console.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/console.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libconsole.a
+  TARGET_PDB = console.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target storage
+
+
+#############################################
+# Order-only phony target for storage
+
+build cmake_object_order_depends_target_storage: phony || modules/CMakeFiles/storage.dir
+
+build modules/CMakeFiles/storage.dir/storage.c.o: C_COMPILER__storage_Debug /Users/hugopeyron/Programming/C/SMS/modules/storage.c || cmake_object_order_depends_target_storage
+  DEP_FILE = modules/CMakeFiles/storage.dir/storage.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/storage.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/storage.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target storage
+
+
+#############################################
+# Link the static library modules/libstorage.a
+
+build modules/libstorage.a: C_STATIC_LIBRARY_LINKER__storage_Debug modules/CMakeFiles/storage.dir/storage.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/storage.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libstorage.a
+  TARGET_PDB = storage.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target student
+
+
+#############################################
+# Order-only phony target for student
+
+build cmake_object_order_depends_target_student: phony || modules/CMakeFiles/student.dir
+
+build modules/CMakeFiles/student.dir/student.c.o: C_COMPILER__student_Debug /Users/hugopeyron/Programming/C/SMS/modules/student.c || cmake_object_order_depends_target_student
+  DEP_FILE = modules/CMakeFiles/student.dir/student.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/student.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/student.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target student
+
+
+#############################################
+# Link the static library modules/libstudent.a
+
+build modules/libstudent.a: C_STATIC_LIBRARY_LINKER__student_Debug modules/CMakeFiles/student.dir/student.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/student.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libstudent.a
+  TARGET_PDB = student.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target menu
+
+
+#############################################
+# Order-only phony target for menu
+
+build cmake_object_order_depends_target_menu: phony || modules/CMakeFiles/menu.dir
+
+build modules/CMakeFiles/menu.dir/menu.c.o: C_COMPILER__menu_Debug /Users/hugopeyron/Programming/C/SMS/modules/menu.c || cmake_object_order_depends_target_menu
+  DEP_FILE = modules/CMakeFiles/menu.dir/menu.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/menu.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/menu.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target menu
+
+
+#############################################
+# Link the static library modules/libmenu.a
+
+build modules/libmenu.a: C_STATIC_LIBRARY_LINKER__menu_Debug modules/CMakeFiles/menu.dir/menu.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/menu.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libmenu.a
+  TARGET_PDB = menu.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target path
+
+
+#############################################
+# Order-only phony target for path
+
+build cmake_object_order_depends_target_path: phony || modules/CMakeFiles/path.dir
+
+build modules/CMakeFiles/path.dir/path.c.o: C_COMPILER__path_Debug /Users/hugopeyron/Programming/C/SMS/modules/path.c || cmake_object_order_depends_target_path
+  DEP_FILE = modules/CMakeFiles/path.dir/path.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/path.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/path.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target path
+
+
+#############################################
+# Link the static library modules/libpath.a
+
+build modules/libpath.a: C_STATIC_LIBRARY_LINKER__path_Debug modules/CMakeFiles/path.dir/path.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/path.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libpath.a
+  TARGET_PDB = path.a.dbg
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target utils
+
+
+#############################################
+# Order-only phony target for utils
+
+build cmake_object_order_depends_target_utils: phony || modules/CMakeFiles/utils.dir
+
+build modules/CMakeFiles/utils.dir/utils.c.o: C_COMPILER__utils_Debug /Users/hugopeyron/Programming/C/SMS/modules/utils.c || cmake_object_order_depends_target_utils
+  DEP_FILE = modules/CMakeFiles/utils.dir/utils.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu17
+  OBJECT_DIR = modules/CMakeFiles/utils.dir
+  OBJECT_FILE_DIR = modules/CMakeFiles/utils.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target utils
+
+
+#############################################
+# Link the static library modules/libutils.a
+
+build modules/libutils.a: C_STATIC_LIBRARY_LINKER__utils_Debug modules/CMakeFiles/utils.dir/utils.c.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = modules/CMakeFiles/utils.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = modules/libutils.a
+  TARGET_PDB = utils.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build modules/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build modules/edit_cache: phony modules/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build modules/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/hugopeyron/Programming/C/SMS -B/Users/hugopeyron/Programming/C/SMS/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build modules/rebuild_cache: phony modules/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+build console: phony modules/libconsole.a
+
+build libconsole.a: phony modules/libconsole.a
+
+build libmenu.a: phony modules/libmenu.a
+
+build libpath.a: phony modules/libpath.a
+
+build libstorage.a: phony modules/libstorage.a
+
+build libstudent.a: phony modules/libstudent.a
+
+build libutils.a: phony modules/libutils.a
+
+build menu: phony modules/libmenu.a
+
+build path: phony modules/libpath.a
+
+build storage: phony modules/libstorage.a
+
+build student: phony modules/libstudent.a
+
+build utils: phony modules/libutils.a
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/hugopeyron/Programming/C/SMS/cmake-build-debug
+
+build all: phony sms modules/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/hugopeyron/Programming/C/SMS/cmake-build-debug/modules
+
+build modules/all: phony modules/libconsole.a modules/libstorage.a modules/libstudent.a modules/libmenu.a modules/libpath.a modules/libutils.a
+
+# =============================================================================
+# Unknown Build Time Dependencies.
+# Tell Ninja that they may appear as side effects of build rules
+# otherwise ordered by order-only dependencies.
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../modules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt ../modules/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

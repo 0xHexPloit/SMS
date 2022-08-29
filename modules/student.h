@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <stdbool.h>
+
 typedef struct
 {
   char name[30];
@@ -10,7 +11,10 @@ typedef struct
   int age;
   int id;
   char gender;
+
+
 } Student;
+
 
 typedef struct linkedList
 {
@@ -18,7 +22,21 @@ typedef struct linkedList
   struct linkedList *next;
 } StudentLinkedList;
 
-static StudentLinkedList *getTail(StudentLinkedList *head);
+bool askUserForName(char *name, int length);
+bool askUserForSurname(char *surname, int length);
+bool askUserForMaster(char *master, int length);
+bool askUserForAge(int *age);
+bool askUserForGender(char *gender);
+
+bool checkName(const char *name);
+
+bool checkSurname(const char *surname);
+
+bool checkMaster(const char *master);
+
+bool checkAge(int age);
+
+bool checkGender(char gender);
 
 bool addStudentRecord(char *name, char *surname, char *master, int age, char gender);
 
@@ -26,7 +44,7 @@ bool deleteStudentRecord(int id);
 
 void deleteLinkedListContent();
 
-void loadStudentRecordsFromFile(const char *filePath);
+bool createStudentFromString(const char *line);
 
 int getNumberOfStudentRecords();
 
@@ -35,5 +53,18 @@ static void displayStudent(Student student);
 void displayStudentRecords();
 
 bool saveStudentRecordsToFile(const FILE *file);
+
+Student* getStudentRecord(int id);
+
+void setStudentName(Student* student, const char *name);
+
+void setStudentSurname(Student* student, const char *surname);
+
+void setStudentMaster(Student* student, const char *master);
+
+void setStudentAge(Student* student, int age);
+
+void setStudentGender(Student* student, char gender);
+
 
 #endif // STUDENT_H
