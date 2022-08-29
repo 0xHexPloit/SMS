@@ -7,7 +7,7 @@ StudentLinkedList *head = NULL;
 StudentLinkedList *tail = NULL;
 int numberOfStudents = 0;
 
-bool addStudentRecord(char *name, char *surname, char *master, int age)
+bool addStudentRecord(char *name, char *surname, char *master, int age, char gender)
 {
   StudentLinkedList *newStudent = (StudentLinkedList *)malloc(sizeof(StudentLinkedList));
   if (newStudent == NULL)
@@ -20,6 +20,7 @@ bool addStudentRecord(char *name, char *surname, char *master, int age)
   strncpy(newStudent->student.surname, surname, 30);
   strncpy(newStudent->student.master, master, 30);
   newStudent->student.age = age;
+  newStudent->student.gender = gender;
   newStudent->next = NULL;
 
   if (head == NULL)
@@ -97,6 +98,7 @@ static void displayStudent(Student student)
   printf("  surname: %s\n", student.surname);
   printf("  master: %s\n", student.master);
   printf("  age: %d\n", student.age);
+  printf("  gender: %c\n", student.gender);
   puts("}\n");
 }
 

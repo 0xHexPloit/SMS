@@ -65,8 +65,14 @@ void displayAddStudentMenu()
   // Getting the student's age
   age = getInt("Enter the student's age: ", 0, 100);
 
+  // Getting the student's gender
+  char gender;
+  char *genderOptions[] = {"Male", "Female"};
+  int selectedOption = getOption("Enter the student's gender", genderOptions, sizeof(genderOptions) / sizeof(char *));
+  gender = selectedOption == 1 ? 'M' : 'F';
+
   // Adding the student record to the linked list
-  addStudentRecord(name, surname, master, age);
+  addStudentRecord(name, surname, master, age, gender);
 
   printf("\nStudent record added\n");
 }

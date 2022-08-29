@@ -20,7 +20,7 @@ typedef struct linkedList
 
 static StudentLinkedList *getTail(StudentLinkedList *head);
 
-bool addStudentRecord(char *name, char *surname, char *master, int age);
+bool addStudentRecord(char *name, char *surname, char *master, int age, char gender);
 
 bool deleteStudentRecord(int id);
 

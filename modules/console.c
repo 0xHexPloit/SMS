@@ -42,7 +42,7 @@ int getOption(const char *label, const char **options, int numberOptions)
   // Displaying the label if not null
   if (label != NULL)
   {
-    printf("%s", label);
+    printf("%s\n", label);
   }
 
   // Displaying the options
