@@ -117,7 +117,15 @@ bool saveStudentRecordsToFile(const FILE *file)
   StudentLinkedList *current = head;
   while (current != NULL)
   {
-    int output = fprintf(file, "%d %s %s %s %d\n", current->student.id, current->student.name, current->student.surname, current->student.master, current->student.age);
+    int output = fprintf(
+      file, "%d %s %s %s %d %c\n",
+      current->student.id,
+      current->student.name,
+      current->student.surname, 
+      current->student.master, 
+      current->student.age, 
+      current->student.gender
+    );
     if (output < 0)
     {
       printf("Error: Writing to file failed\n");
