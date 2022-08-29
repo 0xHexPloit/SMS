@@ -9,6 +9,7 @@ typedef struct
   char master[30];
   int age;
   int id;
+  char gender;
 } Student;
 
 typedef struct linkedList
