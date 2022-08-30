@@ -27,8 +27,8 @@ static void displayLoadFileMenu() {
     clearConsole();
     displayBanner();
 
-    char filePath[100];
-    getString("Enter the path to the file: ", filePath, 100);
+    char filePath[MAX_FILE_PATH];
+    getString("Enter the path to the file: ", filePath, MAX_FILE_PATH);
 
     // Checking if the file exists
     if (checkFileExists(filePath)) {
@@ -50,26 +50,26 @@ void displayAddStudentMenu() {
     clearConsole();
     displayBanner();
 
-    char name[30];
-    char surname[30];
-    char master[30];
+    char name[MAX_NAME_LENGTH];
+    char surname[MAX_SURNAME_LENGTH];
+    char master[MAX_MASTER_LENGTH];
     int age;
     char gender;
 
     // Getting the student's name
-    if (askUserForName(name, 30) == false) {
+    if (askUserForName(name, MAX_NAME_LENGTH) == false) {
         printf("Error: Invalid name\n");
         waitEnterKey();
         return;
     }
     // Getting the student's surname
-    if (askUserForSurname(surname, 30) == false) {
+    if (askUserForSurname(surname, MAX_SURNAME_LENGTH) == false) {
         printf("Error: Invalid surname\n");
         waitEnterKey();
         return;
     }
     // Getting the student's master
-    if (askUserForMaster(master, 30) == false) {
+    if (askUserForMaster(master, MAX_MASTER_LENGTH) == false) {
         printf("Error: Invalid master\n");
         waitEnterKey();
         return;
@@ -122,8 +122,8 @@ static void displayEditStudentMenu() {
 
         if (selectedOption == 1) {
             // Editing the student's name
-            char name[30];
-            if (askUserForName(name, 30) == false) {
+            char name[MAX_NAME_LENGTH];
+            if (askUserForName(name, MAX_NAME_LENGTH) == false) {
                 printf("Error: Invalid name\n");
                 waitEnterKey();
                 return;
@@ -132,8 +132,8 @@ static void displayEditStudentMenu() {
 
         } else if (selectedOption == 2) {
             // Editing the student's surname
-            char surname[30];
-            if (askUserForSurname(surname, 30) == false) {
+            char surname[MAX_SURNAME_LENGTH];
+            if (askUserForSurname(surname, MAX_SURNAME_LENGTH) == false) {
                 printf("Error: Invalid surname\n");
                 waitEnterKey();
                 return;
@@ -142,8 +142,8 @@ static void displayEditStudentMenu() {
 
         } else if (selectedOption == 3) {
             // Editing the student's master
-            char master[30];
-            if (askUserForMaster(master, 30) == false) {
+            char master[MAX_MASTER_LENGTH];
+            if (askUserForMaster(master, MAX_MASTER_LENGTH) == false) {
                 printf("Error: Invalid master\n");
                 waitEnterKey();
                 return;
@@ -211,12 +211,12 @@ void displaySaveMenu() {
     clearConsole();
     displayBanner();
 
-    char buffer[100];
+    char buffer[MAX_FILE_PATH];
     Path filePath;
     bool canExit = false;
 
     while (!canExit) {
-        getString("Enter the path to the file: ", buffer, 100);
+        getString("Enter the path to the file: ", buffer, MAX_FILE_PATH);
         filePath = createPath(buffer);
         Path parentDirectory = getParentDirectory(&filePath);
 

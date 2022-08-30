@@ -69,9 +69,9 @@ bool addStudentRecord(char *name, char *surname, char *master, int age, char gen
         return false;
     }
     newStudent->student.id = tail == NULL ? 1 : tail->student.id + 1;
-    strncpy(newStudent->student.name, name, 30);
-    strncpy(newStudent->student.surname, surname, 30);
-    strncpy(newStudent->student.master, master, 30);
+    strncpy(newStudent->student.name, name, MAX_NAME_LENGTH);
+    strncpy(newStudent->student.surname, surname, MAX_SURNAME_LENGTH);
+    strncpy(newStudent->student.master, master, MAX_MASTER_LENGTH);
     newStudent->student.age = age;
     newStudent->student.gender = gender;
     newStudent->next = NULL;
@@ -251,19 +251,19 @@ Student* getStudentRecord(int id) {
 }
 
 void setStudentName(Student* student, const char *name) {
-    strncpy(student->name, name, 30);
+    strncpy(student->name, name, MAX_NAME_LENGTH);
 }
 
 void setStudentSurname(Student* student, const char *surname) {
-    strncpy(student->surname, surname, 30);
+    strncpy(student->surname, surname, MAX_SURNAME_LENGTH);
 }
 
 void setStudentMaster(Student* student, const char *master) {
-    strncpy(student->master, master, 30);
+    strncpy(student->master, master, MAX_MASTER_LENGTH);
 }
 
 void setStudentAge(Student* student, int age) {
-    student -> age;
+    student->age = age;
 }
 
 void setStudentGender(Student* student, char gender) {

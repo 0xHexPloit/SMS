@@ -10,24 +10,25 @@
 Path createPath(const char *filePath)
 {
   Path path;
-  strncpy(path.filePath, filePath, PATH_MAX);
+  strncpy(path.filePath, filePath, MAX_FILE_PATH);
   return path;
 }
 
 Path getParentDirectory(const Path *path)
 {
-  Path parentDirectory;
-  for (int i = strlen(path->filePath) - 1; i >= 0; i--)
+  for (int i = (int)strlen(path->filePath) - 1; i >= 0; i--)
   {
     if (path->filePath[i] == SEP[0])
     {
-      char buffer[PATH_MAX];
+      Path parentDirectory;
+      char buffer[MAX_FILE_PATH];
       strncpy(buffer, path->filePath, i + 1);
       buffer[i + 1] = '\0';
-      strncpy(parentDirectory.filePath, buffer, PATH_MAX);
-      break;
+      strncpy(parentDirectory.filePath, buffer, MAX_FILE_PATH);
+      return parentDirectory;
     }
   }
+  Path parentDirectory = {.filePath = ""};
   return parentDirectory;
 }
 

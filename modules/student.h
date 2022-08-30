@@ -3,11 +3,15 @@
 
 #include <stdbool.h>
 
+#define MAX_NAME_LENGTH 20
+#define MAX_SURNAME_LENGTH 20
+#define MAX_MASTER_LENGTH 20
+
 typedef struct
 {
-  char name[30];
-  char surname[30];
-  char master[30];
+  char name[MAX_NAME_LENGTH];
+  char surname[MAX_SURNAME_LENGTH];
+  char master[MAX_MASTER_LENGTH];
   int age;
   int id;
   char gender;

@@ -1,12 +1,15 @@
 #ifndef PATH_H
 #define PATH_H
-#define PATH_MAX 256
+
+#define MAX_FILE_PATH 256
 
 struct path
 {
-  char filePath[PATH_MAX];
+  char filePath[MAX_FILE_PATH];
 };
 typedef struct path Path;
+
+
 
 
 Path createPath(const char *filePath);
